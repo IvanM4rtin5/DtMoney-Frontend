@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 :root{
     //base
     --background:#121214;
@@ -39,7 +40,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 body, input, textarea, button{
-    font-family:"Poppins" Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     font-weight: 400;
 }
 h1, h2, h3, h4, h5, h6, strong{
