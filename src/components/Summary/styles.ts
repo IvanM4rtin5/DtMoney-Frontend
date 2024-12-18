@@ -6,6 +6,10 @@ export const Container = styled.div`
     gap: 2rem;
     margin-top: -10rem;
 
+    div.highlight-background{
+        background: var(--green-dark);
+    }
+
     div{
         background: var(--gray4);
         padding: 1.5rem 2rem;
@@ -18,6 +22,7 @@ export const Container = styled.div`
             justify-content: space-between;
         }
         strong{
+            display: block;
             margin-top: 1rem;
             font-size: 2rem;
             font-weight: 500;
