@@ -1,7 +1,13 @@
+import { useEffect } from 'react';
 import { Container } from './styles';
 // import { useTransactions } from '../../hook/TransactionsContext';
 
 export const TransactionsTable = () => {
+  useEffect(() => {
+    fetch('http://localhost:3333/transactions')
+    .then(response => response.json())
+    .then(data => console.log(data));
+  }, []);
 //   const { transactions } = useTransactions();
 
   return (
