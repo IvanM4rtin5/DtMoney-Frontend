@@ -1,7 +1,7 @@
-import { Header } from "../components/Header";
-import { Input } from "../components/Input";
-import { Form, Container } from "./styles";
+import { Header } from "../../components/Header";
+import { Input } from "../../components/Input";
 import { FiMail, FiLock } from "react-icons/fi";
+import { Form, Container } from "./styles";
 
 export function SignIn() {
     return (

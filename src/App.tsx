@@ -1,8 +1,5 @@
-import { Header } from "./components/Header";
-import { TransactionsTable } from "./components/TransactionsTable";
-import { Dashboard } from "./components/Dashboard";
 import { GlobalStyle } from "./styles/global";
-import { SignIn } from "./pages/Singin";
+import { SignIn } from "./pages/singIn/Singin";
 
 export function App() {
   return (
