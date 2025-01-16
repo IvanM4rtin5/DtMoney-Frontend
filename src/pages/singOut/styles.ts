@@ -45,16 +45,6 @@ export const Form = styled.div`
     margin-top: 1rem;
   }
 
-  a {
-    display: block;
-    margin-top: 0.5rem;
-    color: var(--white);
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  } 
 
   @media (max-width: 480px) {
     padding: 1.5rem 1rem;
@@ -78,19 +68,4 @@ export const Form = styled.div`
     }
   }
 `;
-export const CreateAccount = styled.a`
-margin-top: 1rem;
-font-size: 0.9rem;
-color: var(--gray6);
-text-decoration: none;
 
-span {
-  color: var(--green-light);
-  font-weight: bold;
-  transition: color 0.3s;
-
-  &:hover {
-    color: var(--green);
-  }
-}`
-;

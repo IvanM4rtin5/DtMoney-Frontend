@@ -4,6 +4,7 @@ export const Container = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
+width: auto;
 
 background-color: var(--white);
 color: var(--gray2); 
@@ -34,6 +35,6 @@ input:focus {
 }
 > svg {
         color: var(--gray5); 
-        margin-left: 13px;
+        margin-left: -115px;
     }
 `;

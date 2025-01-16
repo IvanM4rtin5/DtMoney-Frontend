@@ -1,9 +1,9 @@
 import { Button, } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { FiMail, FiLock } from "react-icons/fi";
-import { Form, Container, CreateAccount } from "./styles";
+import { Form, Container } from "./styles";
 
-export function SignIn() {
+export function SingOut() {
     return (
       <Container>
         <Form>
@@ -27,14 +27,17 @@ export function SignIn() {
             {...({ placeholder: "Senha" } as any)}
             // onChange ={ e => setPassword(e.target.value)}
           />
+          <Input 
+            placeholder="Confirme a Senha" 
+            type="Password" 
+            icon={FiLock}
+            {...({ placeholder: "Confirme a Senha" } as any)}
+            // onChange ={ e => setPassword(e.target.value)}
+          />
   
           <Button
-            title="Entrar"
+            title="Criar Conta"
           />
-        <CreateAccount href="/src/pages/singOut">
-          Não tem uma conta? <span>Crie sua conta</span>
-        </CreateAccount>
-          <a href="#">Esqueci minha senha</a>
         </Form>
       </Container>
     );
