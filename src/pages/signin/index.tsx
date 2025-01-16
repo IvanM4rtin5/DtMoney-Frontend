@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Button, } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { FiMail, FiLock } from "react-icons/fi";
@@ -31,8 +32,8 @@ export function SignIn() {
           <Button
             title="Entrar"
           />
-        <CreateAccount href="/src/pages/singOut">
-          Não tem uma conta? <span>Crie sua conta</span>
+        <CreateAccount >
+        <Link to="/register"> Não tem uma conta? <span> Crie sua conta</span></Link>
         </CreateAccount>
           <a href="#">Esqueci minha senha</a>
         </Form>

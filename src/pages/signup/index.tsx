@@ -1,16 +1,17 @@
+import { Link } from "react-router-dom";
 import { Button, } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { FiMail, FiLock } from "react-icons/fi";
-import { Form, Container } from "./styles";
+import { Form, Container, CreateAccount } from "./styles";
 
-export function SingOut() {
+export function SignUp() {
     return (
       <Container>
         <Form>
           <h1>Dt Money</h1>
           <p>Aplicação para gerenciar suas finanças</p>
   
-          <h2>Faça seu Login</h2>
+          <h2>Crie sua Conta</h2>
   
           <Input 
             placeholder="E-mail" 
@@ -36,8 +37,15 @@ export function SingOut() {
           />
   
           <Button
-            title="Criar Conta"
+            title="Cadastrar"
           />
+  
+          <CreateAccount >
+            <p>Ja possui uma conta?</p>
+            <Link to="/">
+            <span>Faça seu Login </span>
+            </Link>
+          </CreateAccount>
         </Form>
       </Container>
     );

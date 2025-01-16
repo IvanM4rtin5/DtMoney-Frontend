@@ -1,12 +1,13 @@
 import { GlobalStyle } from "./styles/global";
-import { SignIn } from "./pages/singIn/Singin";
-import { SingOut } from "./pages/singOut/Singout";
+import { SignIn } from "./pages/signin";
+import { SignUp } from "./pages/signup";
+
+import { Routes } from "./router";
 
 export function App() {
   return (
     <>
-      <SignIn/>
-      <SingOut/>  
+      <Routes/>
       {/* <Header/>
       <Dashboard/>
       <TransactionsTable/> */}

@@ -5,7 +5,7 @@ import {
     useEffect,
     useState
   } from "react";
-//   import { api } from "../services/api";
+  import { api } from "../service/api";
   
   interface Transactions {
     id: number;
@@ -34,25 +34,25 @@ import {
   export const TransactionProvider = ({ children }: TransactionsProviderProps) => {
     const [transactions, setTransactions] = useState<Transactions[]>([]);
   
-    // useEffect(() => {
-    //   api.get('transactions')
-    //     .then(response => setTransactions(response.data.transactions));
-    // }, []);
+    useEffect(() => {
+      api.get('transactions')
+        .then(response => setTransactions(response.data.transactions));
+    }, []);
   
-    // async function createTransaction(transactionInput: TransactionInput) {
-    //   const response = await api.post('/transactions', {
-    //     ...transactionInput,
-    //     createdAt: new Date()
-    //   });
-    //   const { transaction } = response.data;
-    //   setTransactions([...transactions, transaction]);
-    // }
+    async function createTransaction(transactionInput: TransactionInput) {
+      const response = await api.post('/transactions', {
+        ...transactionInput,
+        createdAt: new Date()
+      });
+      const { transaction } = response.data;
+      setTransactions([...transactions, transaction]);
+    }
   
-//     return (
-//       <TransactionContext.Provider value={{ transactions, createTransaction }}>
-//         {children}
-//       </TransactionContext.Provider>
-//     );
+    return (
+      <TransactionContext.Provider value={{ transactions, createTransaction }}>
+        {children}
+      </TransactionContext.Provider>
+    );
   };
   
   export const useTransactions = () => {
