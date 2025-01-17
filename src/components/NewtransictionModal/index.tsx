@@ -22,17 +22,17 @@ export const NewTransactionModal = ({
 
   const [type, setType] = useState('deposit');
   const [title, setTitle] = useState('');
-  const [amount, setAmout] = useState(0);
+  const [amount, setAmout] = useState('');
   const [category, setCategory] = useState('');
 
   async function handleCreateNewTransaction(event: FormEvent) {
     event.preventDefault();
 
-    await createTransaction({ type, title, amount, category });
+    await createTransaction({ type, title, amount: Number(amount), category });
 
     setType('deposit');
     setTitle('');
-    setAmout(0);
+    setAmout('');
     setCategory('');
     onRequestClose();
   }
@@ -43,30 +43,53 @@ export const NewTransactionModal = ({
       onRequestClose={onRequestClose}
       overlayClassName="react-modal-overlay"
       className="react-modal-content"
+      style={{
+        overlay: {
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          zIndex: 1000,
+        },
+        content: {
+          position: 'relative',
+          background: 'transparent',
+          border: 'none',
+          padding: 0,
+        }
+      }}
     >
-      <button
-        className="react-modal-close"
-        type="button"
-        onClick={onRequestClose}
-      >
-        <img src={closeImg} alt="Fechal modal" />
-      </button>
-
       <Container onSubmit={handleCreateNewTransaction}>
-        <h2>Cadastrar Transação</h2>
+        <div className="modal-header">
+          <h2>Nova Transação</h2>
+          <button 
+            type="button" 
+            onClick={onRequestClose}
+            className="close-button"
+          >
+            <img src={closeImg} alt="Fechar modal" />
+          </button>
+        </div>
 
         <input
           type="text"
-          placeholder="Título"
+          placeholder="Descrição"
           value={title}
           onChange={({ target }) => setTitle(target.value)}
         />
 
         <input
           type="number"
-          placeholder="Valor"
+          placeholder="Preço"
           value={amount}
-          onChange={({ target }) => setAmout(Number(target.value))}
+          onChange={({ target }) => setAmout(target.value)}
+          step='0.01'
+          min='0.01'
+          
+        />
+
+        <input
+          type="text"
+          placeholder="Categoria"
+          value={category}
+          onChange={({ target }) => setCategory(target.value)}
         />
 
         <TransactionTypeContainer>
@@ -90,13 +113,6 @@ export const NewTransactionModal = ({
             <span>Saída</span>
           </RadioBox>
         </TransactionTypeContainer>
-
-        <input
-          type="text"
-          placeholder="Categoria"
-          value={category}
-          onChange={({ target }) => setCategory(target.value)}
-        />
 
         <button type="submit">Cadastrar</button>
       </Container>
