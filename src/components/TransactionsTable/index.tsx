@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import { Container } from './styles';
-// import { useTransactions } from '../../hook/TransactionsContext';
+import { useTransactions } from '../../hook/TransactionsContext';
 
 export const TransactionsTable = () => {
   useEffect(() => {
     fetch('http://localhost:3333/transactions')
-    .then(response => response.json())
-    .then(data => console.log(data));
+      .then(response => response.json())
+      .then(data => console.log(data));
   }, []);
-//   const { transactions } = useTransactions();
+  const { transactions } = useTransactions();
 
   return (
     <Container>
@@ -22,7 +22,7 @@ export const TransactionsTable = () => {
           </tr>
         </thead>
 
-        {/* { <tbody>
+        <tbody>
           {transactions.map(transaction => (
             <tr key={transaction.id}>
               <td>{transaction.title}</td>
@@ -40,8 +40,8 @@ export const TransactionsTable = () => {
               </td>
             </tr>
           ))}
-        </tbody> */}
-      </table> 
+        </tbody>
+      </table>
     </Container>
   );
-}
+};

@@ -1,16 +1,31 @@
-import { TransactionProvider } from "../../hook/TransactionsContext";
-import { TransactionsTable } from "../../components/TransactionsTable";
+import { useState } from 'react';
+import Modal from 'react-modal';
 import { Header } from "../../components/Header";
-import { Summary } from "../../components/Summary";
 import { Dashboard } from "../../components/Dashboard";
+import { NewTransactionModal } from "../../components/NewtransictionModal";
+import { TransactionProvider } from "../../hook/TransactionsContext";
 
-
+Modal.setAppElement('#root');  // '#root' é o ID do seu elemento raiz no HTML
 export function Transactions() {
+    const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
+
+    function handleOpenNewTransactionModal() {
+        setIsNewTransactionModalOpen(true);
+    }
+
+    function handleCloseNewTransactionModal() {
+        setIsNewTransactionModalOpen(false);
+    }
+
     return (
         <TransactionProvider>
-            <Header />
-            <Dashboard />
-            <TransactionsTable />
+            <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
+            <Dashboard />  
+
+            <NewTransactionModal 
+                isOpen={isNewTransactionModalOpen}
+                onRequestClose={handleCloseNewTransactionModal}
+            />          
         </TransactionProvider>
     );
 }

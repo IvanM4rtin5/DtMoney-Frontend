@@ -37,6 +37,8 @@ export function SignUp() {
           />
   
           <Button
+            type="submit"
+            // onClick={handleCreateNewTransaction}
             title="Cadastrar"
           />
   

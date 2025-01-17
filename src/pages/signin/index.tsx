@@ -35,7 +35,7 @@ export function SignIn() {
         <CreateAccount >
         <Link to="/register"> Não tem uma conta? <span> Crie sua conta</span></Link>
         </CreateAccount>
-          <a href="#">Esqueci minha senha</a>
+          <a href="#" >Esqueci minha senha</a>
         </Form>
       </Container>
     );
