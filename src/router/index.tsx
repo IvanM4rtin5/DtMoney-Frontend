@@ -1,15 +1,37 @@
-import { BrowserRouter  } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { SignIn } from "../pages/signin";
+import { SignUp } from "../pages/signup";
+import { Transactions } from "../pages/transactions";
+import { useAuth } from "../hook/auth";
 
-import { AuthRoutes } from "./auth.routes";
-import { AppRoutes } from "./app.routes";
+interface PrivateRouteProps {
+  children: React.ReactNode;
+}
 
-export function Routes() {
-    // const { user } = useAuth();
+function PrivateRoute({ children }: PrivateRouteProps) {
+  const { user } = useAuth();
+  
+  return user ? <>{children}</> : <Navigate to="/" />;
+}
 
-    return (
-        <BrowserRouter>
-             <AppRoutes/>
-             <AuthRoutes/>
-        </BrowserRouter>
-    )
-} //{user ? <AppRoutes/> }
+export function Router() {
+  return (
+    
+      <Routes>
+        {/* Rotas públicas */}
+        <Route path="/" element={<SignIn />} />
+        <Route path="/register" element={<SignUp />} />
+        
+        {/* Rotas protegidas */}
+        <Route 
+          path="/transactions" 
+          element={
+            <PrivateRoute>
+              <Transactions />
+            </PrivateRoute>
+          } 
+        />
+      </Routes>
+   
+  );
+}

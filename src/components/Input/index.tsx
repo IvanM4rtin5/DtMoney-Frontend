@@ -1,6 +1,10 @@
 import { Container } from "./styles";
 interface InputProps {
+    placeholder: string;
+    type?: "text" | "email" | "password";
     icon?: React.ComponentType<{ size: number }>;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    required?: boolean;
     // outros props...
   }
 

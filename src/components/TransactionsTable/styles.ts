@@ -18,7 +18,7 @@ export const Container = styled.div`
 
     td {
       padding: 1rem 2rem;
-      color: var(--text-body);
+      color: yellow;
       background: var(--shape);
       border: 0;
       border-radius: 0.25rem;

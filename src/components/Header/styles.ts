@@ -27,4 +27,21 @@ export const Content = styled.div`
             filter: brightness(0.9);
         }
     }
+    .logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--red);
+    background: transparent; /* Define o fundo transparente */
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
 `;
