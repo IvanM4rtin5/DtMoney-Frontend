@@ -4,7 +4,7 @@ import { Input } from "../../components/Input";
 import { FiMail, FiLock } from "react-icons/fi";
 import { Form, Container, CreateAccount } from "./styles";
 import { useState } from "react";
-import { signout } from "../../hook/auth";
+import { useAuth } from "../../hook/auth";
 
 export function SignIn() {
   const [email, setEmail] = useState("");

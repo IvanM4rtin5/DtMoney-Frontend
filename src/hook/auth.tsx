@@ -18,6 +18,7 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
+  
   const [user, setUser] = useState<User | null>(() => {
     // Recupera o usuário do localStorage no carregamento inicial
     const userData = localStorage.getItem('user');
@@ -31,10 +32,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   async function signIn({ email, password }: { email: string; password: string }) {
     try {
-      const response = await api.post('/auth/login', {
-        email,
-        password,
-      });
+      const response = await api.post('/auth/login', { email, password });
 
       const { user, token } = response.data;
 
@@ -65,7 +63,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, signIn, signOut }}>
+    <AuthContext.Provider value={{ 
+      signIn, 
+      signOut,
+      user: user || null // Corrigido aqui para refletir o estado correto
+    }}>
       {children}
     </AuthContext.Provider>
   );
