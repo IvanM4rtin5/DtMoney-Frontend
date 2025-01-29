@@ -10,7 +10,6 @@ Este é um projeto de **controle financeiro** desenvolvido com **React, TypeScri
 - 🔗 **React Router DOM**
 - 💰 **Context API para gerenciamento de estado**
 - 📡 **Axios para integração com a API**
-- 🐳 **Docker (para ambiente de desenvolvimento da API)**
 - 🛠 **Vite (build otimizado)**
 
 ## 🎯 Funcionalidades
