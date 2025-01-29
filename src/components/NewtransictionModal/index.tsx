@@ -1,40 +1,54 @@
-import { FormEvent, useState } from 'react';
-import Modal from 'react-modal';
+import { FormEvent, useState } from "react"
+import Modal from "react-modal"
 
-import { useTransactions } from '../../hook/TransactionsContext';
+import { useTransactions, Transaction } from "../../hook/TransactionsContext"
 
-import closeImg from '../../assets/Tipo=x-regular.png';
-import incomeImg from '../../assets/Tipo=arrow-circle-up-regular.svg';
-import outcomeImg from '../../assets/Tipo=arrow-circle-down-regular.svg';
+import closeImg from "../../assets/Tipo=x-regular.png"
+import incomeImg from "../../assets/Tipo=arrow-circle-up-regular.svg"
+import outcomeImg from "../../assets/Tipo=arrow-circle-down-regular.svg"
 
-import { Container, TransactionTypeContainer, RadioBox } from './styles';
+import { Container, TransactionTypeContainer, RadioBox } from "./styles"
 
 interface NewTransactionModalProps {
-  isOpen: boolean;
-  onRequestClose: () => void;
+  isOpen: boolean
+  onRequestClose: () => void
+  transaction?: Transaction | null
+  isEditing: boolean // Indica se o modal está em modo de edição
 }
 
 export const NewTransactionModal = ({
   isOpen,
-  onRequestClose
+  onRequestClose,
+  transaction,
+  isEditing,
 }: NewTransactionModalProps) => {
-  const { createTransaction } = useTransactions();
+  const { createTransaction, updateTransaction } = useTransactions()
 
-  const [type, setType] = useState('deposit');
-  const [title, setTitle] = useState('');
-  const [amount, setAmout] = useState('');
-  const [category, setCategory] = useState('');
+  const [type, setType] = useState<"deposit" | "withdraw">("deposit")
+  const [title, setTitle] = useState("")
+  const [amount, setAmout] = useState("")
+  const [category, setCategory] = useState("")
 
-  async function handleCreateNewTransaction(event: FormEvent) {
-    event.preventDefault();
+  async function handleSubmit(event: FormEvent) {
+    event.preventDefault()
 
-    await createTransaction({ type, title, amount: Number(amount), category });
+    if (isEditing && transaction) {
+      await updateTransaction({
+        ...transaction,
+        title,
+        amount: Number(amount),
+        category,
+        type,
+      })
+    } else {
+      await createTransaction({ type, title, amount: Number(amount), category })
+    }
 
-    setType('deposit');
-    setTitle('');
-    setAmout('');
-    setCategory('');
-    onRequestClose();
+    setType("deposit")
+    setTitle("")
+    setAmout("")
+    setCategory("")
+    onRequestClose()
   }
 
   return (
@@ -45,22 +59,22 @@ export const NewTransactionModal = ({
       className="react-modal-content"
       style={{
         overlay: {
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
           zIndex: 1000,
         },
         content: {
-          position: 'relative',
-          background: 'transparent',
-          border: 'none',
+          position: "relative",
+          background: "transparent",
+          border: "none",
           padding: 0,
-        }
+        },
       }}
     >
-      <Container onSubmit={handleCreateNewTransaction}>
+      <Container onSubmit={handleSubmit}>
         <div className="modal-header">
-          <h2>Nova Transação</h2>
-          <button 
-            type="button" 
+          <h2>{isEditing ? "Editar Transação" : "Nova Transação"}</h2>
+          <button
+            type="button"
             onClick={onRequestClose}
             className="close-button"
           >
@@ -80,9 +94,8 @@ export const NewTransactionModal = ({
           placeholder="Preço"
           value={amount}
           onChange={({ target }) => setAmout(target.value)}
-          step='0.01'
-          min='0.01'
-          
+          step="0.01"
+          min="0.01"
         />
 
         <input
@@ -95,8 +108,8 @@ export const NewTransactionModal = ({
         <TransactionTypeContainer>
           <RadioBox
             type="button"
-            onClick={() => setType('deposit')}
-            isActive={type === 'deposit'}
+            onClick={() => setType("deposit")}
+            isActive={type === "deposit"}
             activeColor="green"
           >
             <img src={incomeImg} alt="Entrada" />
@@ -105,8 +118,8 @@ export const NewTransactionModal = ({
 
           <RadioBox
             type="button"
-            onClick={() => setType('withdraw')}
-            isActive={type === 'withdraw'}
+            onClick={() => setType("withdraw")}
+            isActive={type === "withdraw"}
             activeColor="red"
           >
             <img src={outcomeImg} alt="Saída" />
@@ -117,5 +130,5 @@ export const NewTransactionModal = ({
         <button type="submit">Cadastrar</button>
       </Container>
     </Modal>
-  );
+  )
 }

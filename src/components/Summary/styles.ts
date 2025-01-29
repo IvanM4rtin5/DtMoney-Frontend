@@ -29,4 +29,14 @@ export const Container = styled.div`
             line-height: 3rem;
         }
     }
+    @media(max-width: 768px)  {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: -7rem;
+        div{
+            padding: 1rem;
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
 `;
