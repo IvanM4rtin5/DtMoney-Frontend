@@ -27,4 +27,39 @@ export const Content = styled.div`
             filter: brightness(0.9);
         }
     }
+    .logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--red);
+    background: transparent; /* Define o fundo transparente */
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+  .user {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--green-light);
+    gap: 1rem;
+    margin-right: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+      gap: 0.5rem;
+      margin-left: 1.5rem; 
+    }
+
+    span {
+      font-weight: bold;
+    }
+  }
 `;
