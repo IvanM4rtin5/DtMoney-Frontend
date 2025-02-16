@@ -101,6 +101,10 @@ dt-money/
 ├── tsconfig.json         # Configuração do TypeScript
 └── yarn.lock             # Versões das dependências
 ```
+## 🔗 Links Relacionados
+
+- Repositório do Backend: [DT Money - Backend](https://github.com/IvanM4rtin5/DtMoney-BackEnd)
+
 ### 💡 Meu Esforço e Dedicação
 Este projeto foi desenvolvido com muito esforço e dedicação, buscando demonstrar minhas habilidades como desenvolvedor FullStack. Alguns dos desafios que enfrentei e superei incluem:
 
