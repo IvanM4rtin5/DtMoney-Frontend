@@ -1,6 +1,6 @@
 import { api } from "../service/api";
 import { useNavigate } from "react-router-dom";
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState} from 'react';
 
 interface AuthContextData {
   user: User | null;
@@ -61,7 +61,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     localStorage.removeItem('@dtmoney:token');
 
     delete api.defaults.headers.common["Authorization"];
-    
+
     setUser(null);
     navigate('/');
   }
