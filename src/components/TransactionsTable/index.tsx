@@ -10,7 +10,7 @@ export const TransactionsTable = () => {
     useState<Transaction | null>(null)
 
   useEffect(() => {
-    fetch("http://localhost:3333/transactions")
+    fetch("https://dtmoney-backend.onrender.com/transactions")
       .then((response) => response.json())
       .then((data) => console.log(data))
   }, [])
