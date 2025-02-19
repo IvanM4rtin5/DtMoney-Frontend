@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Container } from "./styles"
 import { NewTransactionModal } from "../NewtransictionModal"
 import { useTransactions, Transaction } from "../../hook/TransactionsContext"
+import { api } from "../../service/api"
 
 export const TransactionsTable = () => {
   const { transactions, deleteTransaction } = useTransactions()
@@ -10,9 +11,10 @@ export const TransactionsTable = () => {
     useState<Transaction | null>(null)
 
   useEffect(() => {
-    fetch("https://dtmoney-backend.onrender.com/transactions")
-      .then((response) => response.json())
-      .then((data) => console.log(data))
+    api
+      .get("/transactions")
+      .then((response) => console.log(response.data))
+      .catch((error) => console.log("erro ao buscar transações",error))
   }, [])
 
   function handleOpenEditModal(transaction: Transaction) {

@@ -22,10 +22,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(() => {
     // Recupera o usuário do localStorage no carregamento inicial
     const userData = localStorage.getItem('user');
-    if (userData) {
-      const parsedUser = JSON.parse(userData);
-      api.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('@dtmoney:token')}`;
-      return parsedUser;
+    const token = localStorage.getItem("@dtmoney:token");
+
+    if (userData && token) {
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      return JSON.parse(userData);
     }
     return null;
   });
@@ -38,7 +39,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       // Salva o token e o usuário no localStorage
       localStorage.setItem('@dtmoney:token', token);
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('@dtmoney:user', JSON.stringify(user));
 
       // Configura o token como padrão nas requisições
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -56,8 +57,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   function signOut() {
-    localStorage.removeItem('user'); // Remove o usuário do localStorage
+    localStorage.removeItem('@dtmoney:user'); // Remove o usuário do localStorage
     localStorage.removeItem('@dtmoney:token');
+
+    delete api.defaults.headers.common["Authorization"];
+    
     setUser(null);
     navigate('/');
   }
