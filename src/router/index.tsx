@@ -14,23 +14,25 @@ function PrivateRoute({ children }: PrivateRouteProps) {
 }
 
 export function Router() {
-  const { user } = useAuth();
 
   return ( 
-      <Routes>
-        {/* Rotas públicas */}
-        <Route path="/" element={<AuthRoutes />} />
-        
-        {/* Rotas protegidas */}
-        <Route 
-          path="/transactions" 
-          element={
-            <PrivateRoute>
-              <AppRoutes />
-            </PrivateRoute>
-          } 
-        />
-      </Routes>
-   
+    <Routes>
+      <Route path="*" element={
+        <Routes>
+          {/* Rotas públicas */}
+          <Route path="/" element={<AuthRoutes />} />
+          
+          {/* Rotas protegidas */}
+          <Route 
+            path="/transactions" 
+            element={
+              <PrivateRoute>
+                <AppRoutes />
+              </PrivateRoute>
+            } 
+          />
+        </Routes>
+      } />
+    </Routes>
   );
 }
