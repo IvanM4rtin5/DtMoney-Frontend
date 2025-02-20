@@ -1,6 +1,6 @@
 import { api } from "../service/api";
 import { useNavigate } from "react-router-dom";
-import { createContext, useContext, useState} from 'react';
+import { createContext, useContext, useState, useEffect} from 'react';
 
 interface AuthContextData {
   user: User | null;
@@ -18,18 +18,19 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
-  
-  const [user, setUser] = useState<User | null>(() => {
-    // Recupera o usuário do localStorage no carregamento inicial
-    const userData = localStorage.getItem('user');
-    const token = localStorage.getItem("@dtmoney:token");
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
 
-    if (userData && token) {
-      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      return JSON.parse(userData);
-    }
-    return null;
-  });
+    useEffect(() => {
+      const userData = localStorage.getItem('@dtmoney:user');
+      const token = localStorage.getItem('@dtmoney:token');
+  
+      if (userData && token) {
+        api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        setUser(JSON.parse(userData));
+      }
+      setLoading(false);
+    },[]);
 
   async function signIn({ email, password }: { email: string; password: string }) {
     try {
@@ -57,7 +58,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   function signOut() {
-    localStorage.removeItem('@dtmoney:user'); // Remove o usuário do localStorage
+    localStorage.removeItem('@dtmoney:user'); 
     localStorage.removeItem('@dtmoney:token');
 
     delete api.defaults.headers.common["Authorization"];
@@ -66,11 +67,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     navigate('/');
   }
 
+  if (loading) {
+    return null;
+  }
+
   return (
     <AuthContext.Provider value={{ 
       signIn, 
       signOut,
-      user: user || null // Corrigido aqui para refletir o estado correto
+      user: user || null 
     }}>
       {children}
     </AuthContext.Provider>

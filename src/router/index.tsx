@@ -1,8 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { SignIn } from "../pages/signin";
-import { SignUp } from "../pages/signup";
-import { Transactions } from "../pages/transactions";
 import { useAuth } from "../hook/auth";
+import { AppRoutes } from "./app.routes";
+import { AuthRoutes } from "./auth.routes";
 
 interface PrivateRouteProps {
   children: React.ReactNode;
@@ -10,25 +9,24 @@ interface PrivateRouteProps {
 
 function PrivateRoute({ children }: PrivateRouteProps) {
   const { user } = useAuth();
-  console.log("Usuário autenticado:", user);
   
   return user ? <>{children}</> : <Navigate to="/" />;
 }
 
 export function Router() {
-  return (
-    
+  const { user } = useAuth();
+
+  return ( 
       <Routes>
         {/* Rotas públicas */}
-        <Route path="/" element={<SignIn />} />
-        <Route path="/register" element={<SignUp />} />
+        <Route path="/" element={<AuthRoutes />} />
         
         {/* Rotas protegidas */}
         <Route 
           path="/transactions" 
           element={
             <PrivateRoute>
-              <Transactions />
+              <AppRoutes />
             </PrivateRoute>
           } 
         />

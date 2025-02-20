@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* display: flex; */
+  display: flex; 
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Centraliza o conteúdo verticalmente abaixo do Header */
+  justify-content: flex-start; 
   min-height: 100vh;
   background: var(--gray2);
   padding: 1rem;
@@ -12,18 +12,16 @@ export const Container = styled.div`
 
 export const Form = styled.div`
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
-  margin-top: -3rem;
-  margin-left: 500px;
+  margin: 0 auto;
   gap: 1.5rem;
   background: var(--green-dark);
   padding: 2.5rem 2rem;
   border-radius: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-top: 2rem; /* Espaço abaixo do Header */
 
   h1 {
     font-size: 2rem;
@@ -56,25 +54,26 @@ export const Form = styled.div`
     text-decoration: underline;
   } 
 
-  @media (max-width: 480px) {
-    padding: 1.5rem 1rem;
+  @media (max-width: 680px) {
+    margin: 3rem 3.5rem;
+    padding: 2.5rem 1rem;
     border-radius: 0.25rem;
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
 
     h2 {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
 
     p {
-      font-size: 0.85rem;
+      font-size: 1rem;
     }
 
     button {
-      font-size: 0.9rem;
-      padding: 0.75rem 1rem;
+      font-size: 1rem;  
+      padding: 0.75rem 0.5rem;
     }
   }
 `;

@@ -24,6 +24,7 @@ box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
     border: 0;
     
     &:placeholder{
+        margin-left:-100px;
         color: var(--gray4); 
     }
 }
@@ -35,6 +36,6 @@ input:focus {
 }
 > svg {
         color: var(--gray5); 
-        margin-left: -115px;
+        margin-left: -200px;
     }
 `;

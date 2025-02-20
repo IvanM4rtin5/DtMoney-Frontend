@@ -29,6 +29,7 @@ interface TransactionContextData {
   deleteTransaction: (transactionId: number) => Promise<void>
   isLoading: boolean
   error: string | null
+  setTransactions: (transactions: Transaction[]) => void
 }
 
 const TransactionContext = createContext<TransactionContextData>(
@@ -141,6 +142,7 @@ export const TransactionProvider = ({
         deleteTransaction,
         isLoading,
         error,
+        setTransactions,
       }}
     >
       {children}

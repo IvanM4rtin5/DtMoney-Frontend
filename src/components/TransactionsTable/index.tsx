@@ -5,7 +5,7 @@ import { useTransactions, Transaction } from "../../hook/TransactionsContext"
 import { api } from "../../service/api"
 
 export const TransactionsTable = () => {
-  const { transactions, deleteTransaction } = useTransactions()
+  const { transactions, deleteTransaction, setTransactions } = useTransactions()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [editingTransaction, setEditingTransaction] =
     useState<Transaction | null>(null)
@@ -13,9 +13,12 @@ export const TransactionsTable = () => {
   useEffect(() => {
     api
       .get("/transactions")
-      .then((response) => console.log(response.data))
-      .catch((error) => console.log("erro ao buscar transações",error))
-  }, [])
+      .then((response) => { 
+        console.log(response.data);
+        setTransactions(response.data);
+      })
+      .catch((error) => console.log("erro ao buscar transações", error));
+  }, []);
 
   function handleOpenEditModal(transaction: Transaction) {
     setEditingTransaction(transaction)

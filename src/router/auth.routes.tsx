@@ -1,10 +1,15 @@
-import { Routes, Route } from "react-router-dom"
-import {} from "react-router-dom"
-
+import { Routes, Route, Navigate } from "react-router-dom"
+import { useAuth } from "../hook/auth"
 import { SignIn } from "../pages/signin";
 import { SignUp } from "../pages/signup";
 
 export function AuthRoutes() {
+  const { user } = useAuth();
+
+  if (user) {
+    return <Navigate to="/transactions" replace />;
+  }
+
   return (
     <Routes>
       <Route path="/" element={<SignIn/>} />
