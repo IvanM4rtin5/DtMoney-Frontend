@@ -10,6 +10,9 @@ interface PrivateRouteProps {
 function PrivateRoute({ children }: PrivateRouteProps) {
   const { user } = useAuth();
   
+    if (user === null) {
+      return null;
+    }
   return user ? <>{children}</> : <Navigate to="/" />;
 }
 
