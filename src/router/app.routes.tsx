@@ -5,7 +5,7 @@ import { Transactions } from "../pages/transactions";
 export function AppRoutes(){
     return(
         <Routes>
-            <Route path="/transactions" element={<Transactions />}/>
+            <Route path="/*" element={<Transactions />}/>
         </Routes>
     );
 }
