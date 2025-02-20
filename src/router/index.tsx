@@ -14,25 +14,20 @@ function PrivateRoute({ children }: PrivateRouteProps) {
 }
 
 export function Router() {
-
   return ( 
     <Routes>
-      <Route path="*" element={
-        <Routes>
-          {/* Rotas públicas */}
-          <Route path="/" element={<AuthRoutes />} />
-          
-          {/* Rotas protegidas */}
-          <Route 
-            path="/transactions" 
-            element={
-              <PrivateRoute>
-                <AppRoutes />
-              </PrivateRoute>
-            } 
-          />
-        </Routes>
-      } />
+      {/* Rotas públicas */}
+      <Route path="/*" element={<AuthRoutes />} />
+      
+      {/* Rotas protegidas */}
+      <Route 
+        path="/transactions/*" 
+        element={
+          <PrivateRoute>
+            <AppRoutes />
+          </PrivateRoute>
+        } 
+      />
     </Routes>
   );
 }
