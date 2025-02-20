@@ -21,7 +21,7 @@ export function Router() {
       
       {/* Rotas protegidas */}
       <Route 
-        path="/transactions" 
+        path="/transactions/*" 
         element={
           <PrivateRoute>
             <AppRoutes />
