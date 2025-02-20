@@ -30,6 +30,7 @@ export const Container = styled.div`
 
     &::placeholder {
       color: var(--gray4); 
+      text-indent: 30px;
     }
   }
 
