@@ -14,7 +14,7 @@ interface HeaderProps {
       <Content>
       <img src={logoImg} alt="dt money" />
       <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-      { user && <span className="user">Bem-vindo, { user.name}</span>}
+      { user && <span className="user">Bem-vindo! { user.name}</span>}
         <button type="button" onClick={onOpenNewTransactionModal}>
           Nova Transação
         </button>
