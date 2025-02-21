@@ -13,7 +13,7 @@ interface NewTransactionModalProps {
   isOpen: boolean
   onRequestClose: () => void
   transaction?: Transaction | null
-  isEditing: boolean // Indica se o modal está em modo de edição
+  isEditing: boolean 
 }
 
 export const NewTransactionModal = ({
