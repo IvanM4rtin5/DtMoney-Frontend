@@ -13,7 +13,7 @@ function PrivateRoute({ children }: PrivateRouteProps) {
   return user ? <>{children}</> : <Navigate to="/" />;
 }
 
-export function Router() {
+export function Router() {  
   return ( 
     <Routes>
       {/* Rotas públicas */}
