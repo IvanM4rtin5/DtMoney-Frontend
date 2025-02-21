@@ -47,7 +47,7 @@ node -v
 
 ```bash
 Copy
-git clone https://github.com/seu-usuario/dt-money.git
+git clone https://github.com/IvanM4rtin5/DtMoney-Frontend.git
 ```
 3. Navegue até a pasta do projeto:
 
