@@ -59,13 +59,13 @@ cd dt-money
 
 ```bash
 Copy
-npm install
+yarn install
 ```
 5. Execute o projeto em modo de desenvolvimento:
 
 ```bash
 Copy
-npm start
+yarn start
 ```
 O projeto estará rodando em http://localhost:3000.
 
