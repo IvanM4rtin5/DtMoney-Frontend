@@ -29,14 +29,13 @@ export const Container = styled.div`
     }
 
     &::placeholder {
-      color: var(--gray4); 
-      text-indent: 30px;
+      color: var(--gray4);   
     }
   }
 
   > svg {
     position: absolute;
-    left: 10px; /* Ajuste a posição do ícone dentro do input */
+    left: 8px; 
     top: 50%;
     transform: translateY(-50%); 
     color: var(--gray5);

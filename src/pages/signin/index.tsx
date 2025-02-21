@@ -12,7 +12,7 @@ export function SignIn() {
   const {signIn} = useAuth();
 
   async function handleSignIn(e : React.SyntheticEvent) {
-    e.preventDefault(); // Previne o comportamento padrão do formulário
+    e.preventDefault(); 
     try {
       await signIn({ email, password });
     } catch (error) {

@@ -12,11 +12,11 @@ export function Summary() {
             const amount = Number(transaction.amount);
             
             if (transaction.type === 'deposit') {
-                acc.deposits += transaction.amount;
-                acc.total += transaction.amount;
+                acc.deposits += Number(transaction.amount);
+                acc.total += Number(transaction.amount);
             } else {
-                acc.withdraws += transaction.amount;
-                acc.total -= transaction.amount;
+                acc.withdraws += Number(transaction.amount);
+                acc.total -= Number(transaction.amount);
             }
             return acc;
         },
