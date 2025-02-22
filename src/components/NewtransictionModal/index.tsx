@@ -32,6 +32,11 @@ export const NewTransactionModal = ({
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
 
+    if (!title || !amount || !category || !type) {
+      alert("Por favor, preencha todos os campos e selecione um tipo de transação.")
+      return
+    }
+
     if (isEditing && transaction) {
       await updateTransaction({
         ...transaction,

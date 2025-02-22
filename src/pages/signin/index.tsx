@@ -13,6 +13,9 @@ export function SignIn() {
 
   async function handleSignIn(e : React.SyntheticEvent) {
     e.preventDefault(); 
+    if (!email || !password) {
+      return alert("Por favor, preencha todos os campos!");
+    }
     try {
       await signIn({ email, password });
     } catch (error) {
@@ -43,12 +46,13 @@ export function SignIn() {
           onChange={e => setPassword(e.target.value)}
           required
         />
-        
-        <Button 
-          title="Entrar"
-          type="submit"
-          onClick={handleSignIn}
-        />
+        <div className="buttons">
+          <Button 
+            title="Entrar"
+            type="submit"
+            onClick={handleSignIn}
+          />
+        </div>
 
         <CreateAccount>
           <Link to="/register">

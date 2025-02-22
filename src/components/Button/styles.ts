@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-  padding: 12px 24px;
+  padding: 12px 20px;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;

@@ -17,7 +17,7 @@ export function SignUp() {
 
   async function handleSingup() {
     if (!name || !email || !password || !confPassword) {
-      return alert("Preencha todos os campos!")
+      return alert("Por favor, preencha todos os campos!")
     }
     if (confPassword !== password) {
       return alert("senha não confere")
@@ -82,12 +82,13 @@ export function SignUp() {
             {...({ placeholder: "Confirme a Senha" } as any)}
           />
   
+          <div className="buttons">
           <Button
             type="submit"
             onClick={handleSingup}
             title="Cadastrar"
           />
-  
+          </div>
           <CreateAccount >
             <p>Ja possui uma conta?</p>
             <Link to="/">

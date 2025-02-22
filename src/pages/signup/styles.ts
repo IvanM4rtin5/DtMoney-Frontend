@@ -53,6 +53,11 @@ export const Form = styled.div`
   a:hover {
     text-decoration: underline;
   } 
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+  }
 
   @media (max-width: 680px) {
     margin: 3rem 3.5rem;
