@@ -8,6 +8,8 @@
 Este é um projeto de **controle financeiro** desenvolvido com **React, TypeScript e Styled Components**. A aplicação permite gerenciar transações financeiras, visualizar saldos e acompanhar o histórico de despesas e receitas. Desenvolvido junto com o curso da [@Rocketseat](https://rocketseat.com.br/).
 
 ---
+![Image](https://github.com/IvanM4rtin5/DtMoney-Frontend/blob/main/DT_MONEY.png)
+---
 
 ## 🛠️ Tecnologias Utilizadas
 
