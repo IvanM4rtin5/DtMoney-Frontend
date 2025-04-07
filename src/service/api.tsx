@@ -6,7 +6,7 @@ export const api = axios.create({
   
   api.interceptors.request.use((config) => {
     const token = localStorage.getItem("@dtmoney:token");
-    console.log("Token enviado:", token); // Para verificar no console
+    console.log("Token enviado:", token); 
     
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
