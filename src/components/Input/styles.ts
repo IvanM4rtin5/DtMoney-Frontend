@@ -18,7 +18,7 @@ export const Container = styled.div`
     flex: 1;
     background: transparent;
     border: none;
-    color: var(--white);
+    color: var(--gray2);
     font-size: 1rem;
     outline: none;
   }
