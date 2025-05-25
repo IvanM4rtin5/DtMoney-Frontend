@@ -1,11 +1,11 @@
-# 🚀 DT Money - Aplicação de Controle Financeiro
+# 🚀 DT Money - Financial Control Application
 
 
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.4.2-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![Styled Components](https://img.shields.io/badge/Styled%20Components-6.1.13-DB7093?logo=styled-components)](https://styled-components.com/)
 
-Este é um projeto de **controle financeiro** desenvolvido com **React, TypeScript e Styled Components**. A aplicação permite gerenciar transações financeiras, visualizar saldos e acompanhar o histórico de despesas e receitas. Desenvolvido junto com o curso da [@Rocketseat](https://rocketseat.com.br/).
+This is a **financial control** project developed with **React, TypeScript and Styled Components**. The application allows you to manage financial transactions, view balances and track the history of expenses and income. Developed together with the [@Rocketseat](https://rocketseat.com.br/) course.
 
 ---
 ![Image](https://github.com/IvanM4rtin5/DtMoney-Frontend/blob/main/DT_MONEY.png)
@@ -24,111 +24,105 @@ Este é um projeto de **controle financeiro** desenvolvido com **React, TypeScri
 
 ---
 
-## 🧩 Funcionalidades
+## 🧩 Features
 
-- **Cadastro de Transações**: Adicione entradas (receitas) e saídas (despesas) com descrição, valor e categoria.
-- **Listagem de Transações**: Visualize todas as transações em uma tabela organizada.
-- **Filtros**: Filtre transações por tipo (entrada/saída) e data.
-- **Autenticação**: Controle de acesso com JWT (JSON Web Tokens).
-- **Persistência de Dados**: Integração com uma API para salvar e recuperar transações.
-- **Formatação**: Valores monetários e datas formatados para melhor visualização.
+- **Transaction Registration**: Add inputs (revenues) and outputs (expenses) with description, value and category.
+- **Transaction List**: View all transactions in an organized table.
+- **Filters**: Filter transactions by type (input/output) and date.
+- **Authentication**: Access control with JWT (JSON Web Tokens).
+- **Data Persistence**: Integration with an API to save and retrieve transactions.
+- **Formatting**: Monetary values ​​and dates formatted for better visualization.
 
 ---
+## 🚀 How to Execute the Project
 
-## 🚀 Como Executar o Projeto
-
-### Pré-requisitos
-
-1. Certifique-se de ter o **Node.js** instalado em sua máquina. Você pode verificar a versão instalada com o comando:
-
+1. Make sure you have **Node.js** installed on your machine. You can check the installed version with the command:
 ```bash
 node -v
 ```
-**Passos para Rodar Localmente**
-2. Clone este repositório:
+**Steps to Run Locally**
+2. Clone this repository:
 
 ```bash
 Copy
 git clone https://github.com/IvanM4rtin5/DtMoney-Frontend.git
 ```
-3. Navegue até a pasta do projeto:
+3. Navigate to the project folder:
 
 ```bash
 Copy
 cd dt-money
 ```
-4. Instale as dependências:
+4. Install dependencies:
 
 ```bash
 Copy
 yarn install
 ```
-5. Execute o projeto em modo de desenvolvimento:
+5. Run the project in development mode:
 
 ```bash
 Copy
 yarn start
 ```
-O projeto estará rodando em http://localhost:3000.
+The project will be running at http://localhost:3000.
 
-### 📂 Estrutura do Projeto
+### 📂 Project Structure
 
 ```
 Copy
 dt-money/
-├── public/               # Arquivos estáticos (HTML, ícones, etc.)
+├── public/               # Static files (HTML, ícones, etc.)
 ├── src/
-│   ├── assets/           # Imagens e ícones
-│   ├── components/       # Componentes reutilizáveis
-│   │   ├── Button/      # Componente de botão
-│   │   ├── Dashboard/    # Componentes do dashboard
-│   │   ├── Input/        # Componente de input
-│   │   ├── NewTransactionModal/ # Modal para nova transação
-│   │   ├── Summary/      # Resumo financeiro
-│   │   └── TransactionsTable/ # Tabela de transações
-│   ├── hooks/            # Hooks personalizados
-│   ├── pages/            # Páginas da aplicação
-│   │   ├── signin/       # Página de login
-│   │   ├── signup/       # Página de registro
-│   │   └── transactions/ # Página de transações
-│   ├── router/           # Configuração das rotas
-│   ├── services/        # Integração com a API
-│   ├── styles/           # Estilos globais
-│   ├── App.tsx           # Componente principal
-│   └── index.tsx         # Ponto de entrada da aplicação
-├── .env                  # Variáveis de ambiente
-├── .gitignore            # Arquivos ignorados pelo Git
-├── README.md             # Documentação do projeto
-├── package.json          # Dependências do projeto
-├── tsconfig.json         # Configuração do TypeScript
-└── yarn.lock             # Versões das dependências
+│   ├── assets/           # Image and icons
+│   ├── components/       # Reusable Components 
+│   │   ├── Button/       # Component of button
+│   │   ├── Dashboard/    # Component of dashboard
+│   │   ├── Input/        # Component of input
+│   │   ├── NewTransactionModal/ # Dialog for new transaction
+│   │   ├── Summary/      # Financial summary
+│   │   └── TransactionsTable/ # Table of transaction
+│   ├── hooks/            # Custom Hooks
+│   ├── pages/            # Application pages
+│   │   ├── signin/       # Login page
+│   │   ├── signup/       # Register page
+│   │   └── transactions/ # Transaction page
+│   ├── router/           # Route Management
+│   ├── services/         # API integration
+│   ├── styles/           # Global styles
+│   ├── App.tsx           # Main component
+│   └── index.tsx         # Application entry point
+├── .env # Environment variables
+├── .gitignore            # Files ignored by Git
+├── README.md             # Project documentation
+├── package.json          # Project dependencies
+├── tsconfig.json         # TypeScript configuration
+└── yarn.lock             # Dependency versions
 ```
-## 🔗 Links Relacionados
+## 🔗 Related Links
 
-- Repositório do Backend: [DT Money - Backend](https://github.com/IvanM4rtin5/DtMoney-BackEnd)
+- Backend Repository: [DT Money - Backend](https://github.com/IvanM4rtin5/DtMoney-BackEnd)
 
-### 💡 Meu Esforço e Dedicação
-Este projeto foi desenvolvido com muito esforço e dedicação, buscando demonstrar minhas habilidades como desenvolvedor FullStack. Alguns dos desafios que enfrentei e superei incluem:
+### 💡 My Effort and Dedication
+This project was developed with a lot of effort and dedication, seeking to demonstrate my skills as a FullStack developer. Some of the challenges I have faced and overcome include:
+API integration: Configuring HTTP requests with Axios and error handling.
 
-Integração com API: Configuração de requisições HTTP com Axios e tratamento de erros.
+State Management: Using the Context API to share data between components.
 
-Gerenciamento de Estado: Uso da Context API para compartilhar dados entre componentes.
+Responsive Design: Creation of a modern and responsive interface with Styled Components.
 
-Design Responsivo: Criação de uma interface moderna e responsiva com Styled Components.
+I believe that this project reflects my ability to work with modern technologies and deliver high-quality solutions.
 
-Acredito que este projeto reflete minha capacidade de trabalhar com tecnologias modernas e entregar soluções de alta qualidade.
+### 📧 Contact
+If you have any questions or want to get in touch, feel free to send me a message:
 
+**Name**: Ivan Martins
 
-### 📧 Contato
-Se você tiver alguma dúvida ou quiser entrar em contato, sinta-se à vontade para me enviar uma mensagem:
-
-**Nome**: Ivan Martins
-
-**E-mail**: ivanmarti.alves@gmail.com
+**Email**: ivanmarti.alves@gmail.com
 
 **LinkedIn**: [https://www.linkedin.com/in/ivan-martins-alves/]
 
 
 ---
-Obrigado por visitar meu projeto! Espero que ele demonstre minhas habilidades e meu comprometimento com a excelência no desenvolvimento de software. 😊
+Thanks for visiting my project! I hope it demonstrates my skills and my commitment to excellence in software development. 😊
 ---
